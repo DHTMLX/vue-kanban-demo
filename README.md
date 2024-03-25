@@ -6,7 +6,7 @@
 
 ```
 yarn 
-yarn start
+yarn dev
 ```
 
 ## Useful links
