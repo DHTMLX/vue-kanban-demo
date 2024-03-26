@@ -2,12 +2,12 @@
   "name": "vue-kanban-demo",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
-    "@dhx/trial-kanban": "^1.5.10",
+    "@dhx/trial-kanban": "^1.5.11",
     "vue": "^3.2.37"
   },
   "devDependencies": {
