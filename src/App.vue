@@ -7,7 +7,7 @@ export default {
   data() {
     const { columns, cards } = getData();
     return { columns, cards };
-  },
+  }
 };
 </script>
 
