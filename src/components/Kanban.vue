@@ -1,14 +1,34 @@
 <script>
-import { Kanban, Toolbar } from "@dhx/trial-kanban";
+import { Kanban, Toolbar, defaultEditorShape } from "@dhx/trial-kanban";
 import "@dhx/trial-kanban/dist/kanban.css";
 
 export default {
-  props: ["cards", "columns"],
+  props: ["cards", "columns", "rows", "cardShape"],
 
   mounted() {
     this.kanban = new Kanban(this.$refs.kanban_container, {
       cards: this.cards,
       columns: this.columns,
+      rows: this.rows,
+      rowKey: "type",
+      cardShape: this.cardShape,
+      editorShape: [
+        ...defaultEditorShape, // import default config for editorShape
+        {
+          type: "links",
+          key: "links",
+          label: "Links"
+        },
+        {
+          type: "comments",
+          key: "comments",
+          label: "Comments",
+          config: {
+            placement: "editor"
+          }
+        }
+      ],
+      currentUser: 1,
       // other configuration properties
     });
 
