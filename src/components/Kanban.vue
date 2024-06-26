@@ -1,22 +1,52 @@
 <script>
-import { Kanban } from "@dhx/trial-kanban";
+import { Kanban, Toolbar, defaultEditorShape } from "@dhx/trial-kanban";
 import "@dhx/trial-kanban/dist/kanban.css";
 
 export default {
-  props: ["cards", "columns"],
+  props: ["cards", "columns", "rows", "cardShape"],
 
   mounted() {
-    new Kanban(this.$refs.cont, {
+    this.kanban = new Kanban(this.$refs.kanban_container, {
       cards: this.cards,
       columns: this.columns,
+      rows: this.rows,
+      rowKey: "type",
+      cardShape: this.cardShape,
+      editorShape: [
+        ...defaultEditorShape, // import default config for editorShape
+        {
+          type: "links",
+          key: "links",
+          label: "Links"
+        },
+        {
+          type: "comments",
+          key: "comments",
+          label: "Comments",
+          config: {
+            placement: "editor"
+          }
+        }
+      ],
+      currentUser: 1,
+      // other configuration properties
+    });
+
+    this.toolbar = new Toolbar(this.$refs.toolbar_container, {
+      api: this.kanban.api
     });
   },
+
   unmounted() {
-    this.$refs.cont.innerHTML = "";
-  },
+    this.kanban.destructor();
+    this.toolbar.destructor();
+  }
 };
 </script>
 
 <template>
-  <div ref="cont" style="width: 100%; height: 100%"></div>
+  <div class="component_container">
+    <div ref="toolbar_container"></div>
+    <div ref="kanban_container" style="height: calc(100% - 56px);"></div>
+  </div>
 </template>
