@@ -2,7 +2,7 @@
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 
-![DHTMLX Kanban with Vue Demo](https://raw.githubusercontent.com/DHTMLX/vue-kanban-demo/master/kanban.png)
+![DHTMLX Kanban with Vue Demo](kanban.png)
 
 ## How to start
 
