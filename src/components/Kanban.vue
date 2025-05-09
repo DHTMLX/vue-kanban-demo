@@ -47,6 +47,6 @@ export default {
 <template>
   <div class="component_container">
     <div ref="toolbar_container"></div>
-    <div ref="kanban_container" style="height: calc(100% - 56px);"></div>
+    <div ref="kanban_container" class="widget"></div>
   </div>
 </template>
